@@ -1,0 +1,19 @@
+version: "3"
+services:
+    fingl:
+        image: fingl
+        container_name: fingl
+        ports:
+            - "5932:5432"
+        networks:
+            - fingl
+    fingl-api:
+        image: fingl-api
+        container_name: fingl-api
+        ports:
+            - "3000:3000"
+        networks:
+            - fingl
+networks:
+    fingl:
+        driver: bridge
